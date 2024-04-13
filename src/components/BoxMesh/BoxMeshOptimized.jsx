@@ -25,18 +25,18 @@ export default function Home() {
   };
 
   const colorize = (el) => {
-    el.style.backgroundColor = "white";
+    el.style.backgroundColor = "#f4f0ea";
     setTimeout(() => {
       el.style.backgroundColor = "transparent";
     }, 300);
   };
 
   return (
-    <div className={`${styles.container} bg-pink-700 h-screen`}>
+    <div
+      className={`${styles.container} bg-gradient-to-r from-purple-500 to-pink-500 h-screen`}
+    >
       {/* <div className={styles.body}>
-        <p className="text-pink-700">
-          We specialize in turning space into complexe shapes
-        </p>
+        <p className="text-white">Mohd Khalid Khan</p>
       </div> */}
       <div className={styles.grid}>
         {windowsWidth > 0 &&

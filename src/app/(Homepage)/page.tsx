@@ -1,13 +1,15 @@
-import BoxMesh from "@/components/BoxMesh/BoxMesh";
+"use server";
 import BoxMeshOptimized from "@/components/BoxMesh/BoxMeshOptimized";
-import Image from "next/image";
+import Scene1 from "@/components/FollowingBall/Scene1";
+import PreloaderProvider from "./PreloaderProvider";
 
-export default function Home() {
+export default async function Home() {
   return (
-    <main>
-      {/* <BoxMesh /> */}
+    <div>
+      <PreloaderProvider />
       <BoxMeshOptimized />
-      <div className="h-screen bg-black"></div>
-    </main>
+      <Scene1 />
+      <div className="h-screen bg-gradient-to-r from-sky-500 to-indigo-500"></div>
+    </div>
   );
 }
