@@ -1,16 +1,16 @@
 .container {
   display: flex;
-  height: 100vh;
+  height: 100dvh;
   align-items: center;
   justify-content: center;
   // background-color: rgb(255, 28, 28);
 }
 .container .grid {
+  position: absolute;
   display: flex;
   height: 100%;
   width: 100%;
   overflow: hidden;
-  position: absolute;
 }
 
 .container .body {

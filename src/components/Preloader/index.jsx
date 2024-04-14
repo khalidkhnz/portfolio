@@ -113,6 +113,7 @@ const words = [
 ];
 
 export default function Index() {
+  // const [isActive, setIsActive] = useState(false);
   const [index, setIndex] = useState(0);
   const [dimension, setDimension] = useState({ width: 0, height: 0 });
 
@@ -126,63 +127,41 @@ export default function Index() {
       () => {
         setIndex(index + 1);
       },
-      index == 70 ? 1500 : index == 36 ? 1000 : 50
+      index == 70 ? 100 : index == 36 ? 200 : 40
     );
   }, [index]);
-
-  const initialPath = `M0 0 L${dimension.width} 0 L${dimension.width} ${
-    dimension.height
-  } Q${dimension.width / 2} ${dimension.height + 300} 0 ${
-    dimension.height
-  }  L0 0`;
-  const targetPath = `M0 0 L${dimension.width} 0 L${dimension.width} ${
-    dimension.height
-  } Q${dimension.width / 2} ${dimension.height} 0 ${dimension.height}  L0 0`;
-
-  const curve = {
-    initial: {
-      d: initialPath,
-      transition: { duration: 0.7, ease: [0.76, 0, 0.24, 1] },
-    },
-    exit: {
-      d: targetPath,
-      transition: { duration: 0.7, ease: [0.76, 0, 0.24, 1], delay: 0.3 },
-    },
-  };
 
   return (
     <motion.div
       variants={slideUp}
       initial="initial"
       exit="exit"
-      className={`bg-[#242424] ${styles.introduction}`}
+      className={`relative bg-[#242424] ${styles.introduction}`}
     >
-      <BoxMeshOptimized sx={"bg-orange-100"} blockColor={"orange"}>
-        <div>
+      <BoxMeshOptimized
+        blockSx={"border-black border-[1px] bg-black"}
+        sx={"bg-[#242424]"}
+        blockColor={"orange"}
+      >
+        <div className="">
+          <div className="absolute top-0 right-0 h-screen w-screen">
+            {/* <h1 className="text-red-50">Hello Stranger</h1> */}
+          </div>
           {dimension.width > 0 && (
             <>
               <motion.p
-                className="absolute z-[1] text-white bottom-[40px] right-[40px] text-6xl"
+                className="absolute z-[1] text-red-50 bottom-[40px] right-[40px] text-[50px] md:text-[100px]"
                 variants={opacity}
                 initial="initial"
                 animate="enter"
               >
-                <span></span>
                 {words[index]}
               </motion.p>
-              <svg>
-                <motion.path
-                  variants={curve}
-                  initial="initial"
-                  exit="exit"
-                  // className={`fill-[#242424]`}
-                ></motion.path>
-              </svg>
             </>
           )}
         </div>
       </BoxMeshOptimized>
-      <GradientCursor isActive={false} />
+      {/* <GradientCursor isActive={isActive} /> */}
       <FuzzyOverlay alt />
     </motion.div>
   );

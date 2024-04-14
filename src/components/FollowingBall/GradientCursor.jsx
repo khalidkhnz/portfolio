@@ -2,14 +2,12 @@
 import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 
-const colors = ["#c32d27", "#f5c63f", "#457ec4", "#356fdb"];
-
 export default function GradientCursor({ isActive, isLoading }) {
   const mouse = useRef({ x: 0, y: 0 });
   const delayedMouse = useRef({ x: 0, y: 0 });
   const rafId = useRef(null);
   const circles = useRef([]);
-  const size = isActive ? 400 : 10;
+  // const size = isActive ? 400 : 10;
   const delay = isActive ? 0.015 : 0.005;
 
   const lerp = (x, y, a) => x * (1 - a) + y * a;
@@ -37,10 +35,8 @@ export default function GradientCursor({ isActive, isLoading }) {
   };
 
   const moveCircles = (x, y) => {
-    if (circles.current.length < 1) return;
-    circles.current.forEach((circle, i) => {
-      gsap.set(circle, { x, y, xPercent: -50, yPercent: -50 });
-    });
+    const cursor = circles.current;
+    gsap.set(cursor, { x, y, xPercent: -50, yPercent: -50 });
   };
 
   useEffect(() => {
@@ -54,24 +50,33 @@ export default function GradientCursor({ isActive, isLoading }) {
 
   return (
     <div className="relative h-screen z-50">
-      {[...Array(4)].map((_, i) => {
-        return (
-          <div
-            style={{
-              backgroundColor: colors[i],
-              width: size,
-              height: size,
-              filter: `blur(${isActive ? 20 : 2}px)`,
-              transition: `transform ${
-                (4 - i) * delay
-              }s linear, height 0.3s ease-out, width 0.3s ease-out, filter 0.3s ease-out`,
-            }}
-            className="top-0 left-0 fixed rounded-full mix-blend-difference"
-            key={i}
-            ref={(ref) => (circles.current[i] = ref)}
-          />
-        );
-      })}
+      <div
+        style={{
+          width: isActive ? "200px" : "10px",
+          height: isActive ? "200px" : "10px",
+        }}
+        className="top-0 left-0 fixed rounded-full mix-blend-difference opacity-35"
+        ref={circles}
+      >
+        <div
+          style={{
+            filter: `blur(${50}px)`,
+          }}
+          className="absolute bg-orange-100 w-full h-full rounded-full"
+        />
+        <div
+          style={{
+            filter: `blur(${40}px)`,
+          }}
+          className="absolute bg-pink-600 w-full h-full rounded-full"
+        />
+        <div
+          style={{
+            filter: `blur(${30}px)`,
+          }}
+          className="absolute bg-red-400 w-full h-full rounded-full"
+        />
+      </div>
     </div>
   );
 }

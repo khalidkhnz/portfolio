@@ -3,7 +3,7 @@ import { cn } from "@/shared/utils";
 import styles from "./mesh.module.scss";
 import { useState, useEffect } from "react";
 
-export default function Home({ children, sx, blockColor }: any) {
+export default function Home({ children, sx, blockSx, blockColor }: any) {
   const [windowsWidth, setWindowsWidth] = useState(0);
 
   useEffect(() => {
@@ -18,6 +18,7 @@ export default function Home({ children, sx, blockColor }: any) {
     return [...Array(nbOfBlocks).keys()].map((_, index) => {
       return (
         <div
+          className={cn(blockSx)}
           onMouseEnter={(e) => {
             colorize(e.target);
           }}
@@ -39,10 +40,7 @@ export default function Home({ children, sx, blockColor }: any) {
   }
   return (
     <div className={`${styles.container} ${cn("bg-black", sx)}`}>
-      <div className={styles.body}>
-        {/* <p className="text-white">Mohd Khalid Khan</p> */}
-        {children}
-      </div>
+      <div className={`${styles.body}`}>{children}</div>
       <div className={styles.grid}>
         {windowsWidth > 0 &&
           // @ts-nocheck

@@ -28,7 +28,6 @@ export const FuzzyOverlay = ({ alt }) => {
         backgroundImage: `${
           alt ? `url("/black-noise.png")` : `url("/noise.png")`
         }`,
-        // backgroundImage: 'url("/noise.png")',
       }}
       className="pointer-events-none absolute -inset-[100%] opacity-[15%]"
     />
