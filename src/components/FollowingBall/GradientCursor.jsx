@@ -4,7 +4,7 @@ import gsap from "gsap";
 
 const colors = ["#c32d27", "#f5c63f", "#457ec4", "#356fdb"];
 
-export default function GradientCursor({ isActive }) {
+export default function GradientCursor({ isActive, isLoading }) {
   const mouse = useRef({ x: 0, y: 0 });
   const delayedMouse = useRef({ x: 0, y: 0 });
   const rafId = useRef(null);
@@ -53,7 +53,7 @@ export default function GradientCursor({ isActive }) {
   }, [isActive]);
 
   return (
-    <div className="relative h-screen">
+    <div className="relative h-screen z-50">
       {[...Array(4)].map((_, i) => {
         return (
           <div

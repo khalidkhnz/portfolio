@@ -1,8 +1,9 @@
 "use client";
+import { cn } from "@/shared/utils";
 import styles from "./mesh.module.scss";
 import { useState, useEffect } from "react";
 
-export default function Home() {
+export default function Home({ children, sx, blockColor }: any) {
   const [windowsWidth, setWindowsWidth] = useState(0);
 
   useEffect(() => {
@@ -12,6 +13,8 @@ export default function Home() {
   const getBlocks = () => {
     const blockSize = windowsWidth * 0.05;
     const nbOfBlocks = Math.ceil(window.innerHeight / blockSize);
+    // @ts-nocheck
+    // @ts-ignore
     return [...Array(nbOfBlocks).keys()].map((_, index) => {
       return (
         <div
@@ -24,8 +27,8 @@ export default function Home() {
     });
   };
 
-  const colorize = (el) => {
-    el.style.backgroundColor = "#f4f0ea";
+  const colorize = (el: any) => {
+    el.style.backgroundColor = blockColor || "#f4f0ea";
     setTimeout(() => {
       el.style.backgroundColor = "transparent";
     }, 300);
@@ -35,12 +38,15 @@ export default function Home() {
     /* bg-gradient-to-r from-purple-500 to-pink-500 h-screen */
   }
   return (
-    <div className={`${styles.container} bg-black`}>
+    <div className={`${styles.container} ${cn("bg-black", sx)}`}>
       <div className={styles.body}>
-        <p className="text-white">Mohd Khalid Khan</p>
+        {/* <p className="text-white">Mohd Khalid Khan</p> */}
+        {children}
       </div>
       <div className={styles.grid}>
         {windowsWidth > 0 &&
+          // @ts-nocheck
+          // @ts-ignore
           [...Array(20).keys()].map((_, index) => {
             return (
               <div key={index} className={styles.column}>

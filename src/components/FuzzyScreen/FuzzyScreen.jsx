@@ -11,7 +11,7 @@ const FuzzyScreen = ({ children, alt = false }) => {
   );
 };
 
-const FuzzyOverlay = ({ alt }) => {
+export const FuzzyOverlay = ({ alt }) => {
   return (
     <motion.div
       initial={{ transform: "translateX(-10%) translateY(-10%)" }}

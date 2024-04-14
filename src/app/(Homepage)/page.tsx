@@ -1,22 +1,26 @@
 "use server";
 import BoxMeshOptimized from "@/components/BoxMesh/BoxMeshOptimized";
-import Scene1 from "@/components/FollowingBall/Scene1";
 import PreloaderProvider from "./PreloaderProvider";
 import FuzzyScreen from "@/components/FuzzyScreen/FuzzyScreen";
+import HorizontalScroll, {
+  HorizontalScrollCarousel,
+} from "@/components/HorizontalScroll/HorizontalScroll";
 
 export default async function Home() {
   return (
     <div>
       <PreloaderProvider />
       <FuzzyScreen>
-        <BoxMeshOptimized />
+        <BoxMeshOptimized>
+          <p className="text-white">Mohd Khalid Khan</p>
+        </BoxMeshOptimized>
       </FuzzyScreen>
 
-      <Scene1 />
-
-      <FuzzyScreen>
+      <FuzzyScreen alt>
         <div className="h-screen bg-gradient-to-r from-sky-500 to-indigo-500"></div>
       </FuzzyScreen>
+
+      <HorizontalScroll />
     </div>
   );
 }
