@@ -112,9 +112,12 @@ const words = [
   "100%",
 ];
 
+const text = ["I love cats", "and", "I am batman"];
+
 export default function Index() {
   // const [isActive, setIsActive] = useState(false);
   const [index, setIndex] = useState(0);
+  const [textIndex, setTextIndex] = useState(0);
   const [dimension, setDimension] = useState({ width: 0, height: 0 });
 
   useEffect(() => {
@@ -127,25 +130,42 @@ export default function Index() {
       () => {
         setIndex(index + 1);
       },
-      index == 70 ? 100 : index == 36 ? 200 : 40
+      index == 70 ? 400 : index == 36 ? 400 : 20
     );
   }, [index]);
+
+  useEffect(() => {
+    if (textIndex == text.length - 1) return;
+    setTimeout(
+      () => {
+        setTextIndex(textIndex + 1);
+      },
+      textIndex == 0 ? 2000 : 1000
+    );
+  }, [textIndex]);
 
   return (
     <motion.div
       variants={slideUp}
       initial="initial"
       exit="exit"
-      className={`relative bg-[#242424] ${styles.introduction}`}
+      className={`relative ${styles.introduction}`}
     >
       <BoxMeshOptimized
-        blockSx={"border-black border-[1px] bg-black"}
+        blockSx={"border-black border-[4px] bg-black"}
         sx={"bg-[#242424]"}
         blockColor={"orange"}
       >
         <div className="">
-          <div className="absolute top-0 right-0 h-screen w-screen">
-            {/* <h1 className="text-red-50">Hello Stranger</h1> */}
+          <div className="absolute flex items-center justify-center top-0 right-0 h-screen w-screen">
+            <motion.p
+              variants={opacity}
+              initial="initial"
+              animate="enter"
+              className="text-red-50 uppercase text-[50px] md:text-[100px]"
+            >
+              {text[textIndex]}
+            </motion.p>
           </div>
           {dimension.width > 0 && (
             <>

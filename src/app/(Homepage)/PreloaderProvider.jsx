@@ -13,7 +13,7 @@ const PreloaderProvider = () => {
         setIsLoading(false);
         document.body.style.cursor = "default";
         window.scrollTo(0, 0);
-      }, 5000);
+      }, 4500);
     })();
   }, []);
 

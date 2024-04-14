@@ -1,13 +1,20 @@
 "use client";
 import styles from "./style.module.scss";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { opacity, background } from "./anim";
 import Nav from "./nav";
+import { useDispatch, useSelector } from "react-redux";
+import { setNavActive } from "@/redux-toolkit/reducers/nav.reducer";
 
 export default function Header() {
   const [isActive, setIsActive] = useState(false);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(setNavActive({ setIsNavActive: isActive }));
+  }, [isActive]);
 
   return (
     <div className={`${styles.header} fixed top-0 z-50 text-white`}>
