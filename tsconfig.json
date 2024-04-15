@@ -19,7 +19,7 @@
     ],
     "paths": {
       "@/*": ["./src/*"],
-      "@/providers/*": ["./src/providers/*"],
+      "@/providers/*": ["./src/components/providers/*"],
       "@/shared/*": ["./src/shared/*"],
       "@/components/*": ["./src/components/*"]
     }

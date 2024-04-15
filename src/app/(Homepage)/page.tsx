@@ -5,7 +5,7 @@ import FuzzyScreen from "@/components/FuzzyScreen/FuzzyScreen";
 import HorizontalScroll, {
   HorizontalScrollCarousel,
 } from "@/components/HorizontalScroll/HorizontalScroll";
-import NavActiveBlurProvider from "@/Providers/NavActiveBlurProvider";
+import NavActiveBlurProvider from "@/providers/NavActiveBlurProvider";
 import Footer from "@/components/Footer/Footer";
 import Greets from "./Greets";
 import module from "../variables.module.scss";
