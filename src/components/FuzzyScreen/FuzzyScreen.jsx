@@ -2,11 +2,11 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-const FuzzyScreen = ({ children, alt = false }) => {
+const FuzzyScreen = ({ children, alt = false, disabled = false }) => {
   return (
     <div className="relative overflow-hidden">
       {children}
-      <FuzzyOverlay alt={alt} />
+      {!disabled && <FuzzyOverlay alt={alt} />}
     </div>
   );
 };

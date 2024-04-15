@@ -1,6 +1,6 @@
 .container {
   display: flex;
-  height: 100dvh;
+  // height: 100dvh;
   align-items: center;
   justify-content: center;
   // background-color: rgb(255, 28, 28);
@@ -8,7 +8,7 @@
 .container .grid {
   position: absolute;
   display: flex;
-  height: 100%;
+  height: 100vh;
   width: 100%;
   overflow: hidden;
 }

@@ -39,7 +39,7 @@ export default function Home({ children, sx, blockSx, blockColor }: any) {
     /* bg-gradient-to-r from-purple-500 to-pink-500 h-screen */
   }
   return (
-    <div className={`${styles.container} ${cn("bg-black", sx)}`}>
+    <div className={`${styles.container} ${cn("bg-black h-[100vh]", sx)}`}>
       <div className={`${styles.body}`}>{children}</div>
       <div className={styles.grid}>
         {windowsWidth > 0 &&
