@@ -12,3 +12,20 @@
 body::-webkit-scrollbar {
   display: none;
 }
+
+@layer base {
+  @font-face {
+    font-family: Editorial;
+    src: url(../../public/fonts/EditorialNew-Regular.42a02035.otf);
+  }
+
+  @font-face {
+    font-family: GreatVibes;
+    src: url(../../public/fonts/GreatVibes-Regular.2bebe7ea.ttf);
+  }
+
+  @font-face {
+    font-family: Mondwest;
+    src: url(../../public/fonts/Mondwest-Regular.ec1b51ac.otf);
+  }
+}

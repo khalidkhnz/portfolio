@@ -7,6 +7,11 @@ const config: Config = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    fontFamily: {
+      Editorial: ["Editorial"],
+      GreatVibes: ["GreatVibes"],
+      Mondwest: ["Mondwest"],
+    },
     extend: {
       gridTemplateColumns: {
         "16": "repeat(16, minmax(0, 1fr))",

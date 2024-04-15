@@ -33,7 +33,7 @@ export default async function Home() {
                   han
                 </p>
                 <span
-                  className={`${module.font1} text-white text-[30px] md:text-[60px] grayscale`}
+                  className={`${module.font1} text-white text-[20px] md:text-[60px] grayscale`}
                 >
                   🦇 Full Stack Developer 🦇
                 </span>

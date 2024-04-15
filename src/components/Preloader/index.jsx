@@ -1,5 +1,6 @@
 "use client";
 import styles from "./style.module.scss";
+import module from "../../app/variables.module.scss";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { opacity, slideUp } from "./anim";
@@ -162,7 +163,7 @@ export default function Index() {
               variants={opacity}
               initial="initial"
               animate="enter"
-              className="text-red-50 uppercase text-[50px] md:text-[100px]"
+              className={`${module.font2} text-red-50 uppercase text-[50px] md:text-[100px]`}
             >
               {text[textIndex]}
             </motion.p>
@@ -170,7 +171,7 @@ export default function Index() {
           {dimension.width > 0 && (
             <>
               <motion.p
-                className="absolute z-[1] text-red-50 bottom-[40px] right-[40px] text-[50px] md:text-[100px]"
+                className={`${module.font2} absolute z-[1] text-red-50 bottom-[40px] right-[40px] text-[50px] md:text-[100px]`}
                 variants={opacity}
                 initial="initial"
                 animate="enter"
